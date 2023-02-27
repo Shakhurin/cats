@@ -11,9 +11,13 @@ class CatsAPI {
         return fetch(`${this.url}/show/${id}`)
     }
 
-    deleteCurrentCat(id) {
-        return fetch(`${this.url}/delete/${id}`)
+    deleteCat(id) {
+        return fetch(`${this.url}/delete/${id}`, {
+            method: 'DELETE'
+        })
     }
 }
 
-const api = new CatsAPI('karma1703')
+const DB_NAME = 'karma1703';
+
+const api = new CatsAPI(DB_NAME);

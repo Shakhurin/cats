@@ -17,7 +17,7 @@ header{
     font-size: 40px;
 }
 
-.container{
+[data-wrapper]{
     background-color: #4479D4;
     width: 100%;
     height: auto;
