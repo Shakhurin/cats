@@ -1,0 +1,77 @@
+body{
+    background-color: #FF6A00;
+    
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFAD73;
+    height:45px;
+    width: 100%;
+    margin-bottom:10px;
+}
+
+#APIname{
+    font-size: 40px;
+}
+
+.container{
+    background-color: #4479D4;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 18rem;
+    background-color: #6A92D4;
+    border-radius: 2%;
+    border: solid;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    background-color: aquamarine;
+    font-family: 'Raleway', sans-serif;
+}
+
+.card-title{
+    align-self: center; 
+    font-size: 16px;
+    background-color: aqua;
+    margin: 0;
+    margin: 10px;
+}
+
+.card-img-top{
+    align-self: center;
+    width: 200px;;
+    height: 200px;
+    border-radius: 2%;
+}
+
+.card-text{
+    background-color: aliceblue;
+    padding: 5px;
+}
+
+
+.btn-open{
+    background-color: rgb(43, 43, 255);
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.btn-edit{
+    background-color: yellow;
+}
+
+.btn-delete{
+    background-color: red;
+}
