@@ -1,4 +1,9 @@
 const $wrapper = document.querySelector('[data-wrapper]');
+const $addBtn = document.querySelector('[data-add_button]');
+const $closeBtn = document.querySelector('[data-close_button');
+const $modalAdd = document.querySelector('[data-modal]');
+
+const HIDDEN_CLASS = 'hidden';
 
 const generateCatCard = (cat) => {
     return (
@@ -12,9 +17,9 @@ const generateCatCard = (cat) => {
             <h5 class="card-title">${cat.name}</h5>
             <p class="card-text">${cat.description}</p>
             <div class = "buttonsContainer">
-                <button data-action="open" class="btn-open">Open</button>
-                <button data-action="edit" class="btn-edit">Edit</button>
-                <button data-action="delete" class="btn-delete">Delete</button>
+                <button type='button' data-action="open" class="btn-open">Open</button>
+                <button type='button' data-action="edit" class="btn-edit">Edit</button>
+                <button type='button' data-action="delete" class="btn-delete">Delete</button>
             </div>
         </div>
     </div>`
@@ -64,6 +69,37 @@ $wrapper.addEventListener('click', async (event) => {
         default:
             break;
     }
+})
+
+$addBtn.addEventListener('click', () => {
+    $modalAdd.classList.remove(HIDDEN_CLASS);
+})
+
+$closeBtn.addEventListener('click', () => {
+    $modalAdd.classList.add(HIDDEN_CLASS);
+})
+
+
+document.forms.add_cats_form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const data = Object.fromEntries(new FormData(event.target).entries());
+
+    data.id = Number(data.id);
+    data.age = Number(data.age);
+    data.rate = Number(data.rate);
+    data.favorite = data.favorite ? true : false;
+
+
+    const res = await api.addNewCat(data);
+    const responce = await res.json();
+
+    // Как то вывести сразу этого кота (перезапросить всех котов)
+
+    console.log(responce)
+    event.target.reset() // сброс формы
+
+    $modalAdd.classList.add(HIDDEN_CLASS); // убираем модалку
 })
 
 const firstGettingCats = async () => {

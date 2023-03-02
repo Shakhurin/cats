@@ -1,5 +1,5 @@
 class CatsAPI {
-    constructor(apiName){
+    constructor(apiName) {
         this.url = `https://cats.petiteweb.dev/api/single/${apiName}`;
     }
 
@@ -14,6 +14,16 @@ class CatsAPI {
     deleteCat(id) {
         return fetch(`${this.url}/delete/${id}`, {
             method: 'DELETE'
+        })
+    }
+
+    addNewCat(data) {
+        return fetch(`${this.url}/add`, {
+            method: 'POST',
+            headers:{
+                'Content-type':'application/json'
+            },
+            body: JSON.stringify(data)
         })
     }
 }
