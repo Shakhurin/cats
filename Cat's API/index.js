@@ -2,6 +2,7 @@ const $wrapper = document.querySelector('[data-wrapper]');
 const $addBtn = document.querySelector('[data-add_button]');
 const $closeBtn = document.querySelector('[data-close_button');
 const $modalAdd = document.querySelector('[data-modal]');
+const $formErrorMsg = document.querySelector('[data-errmsg]');
 
 const HIDDEN_CLASS = 'hidden';
 
@@ -75,12 +76,13 @@ $addBtn.addEventListener('click', () => {
     $modalAdd.classList.remove(HIDDEN_CLASS);
 })
 
-$closeBtn.addEventListener('click', () => {
+$closeBtn.addEventListener('click', () => { // Как то начать отлавливать ошибку при закрытии ((
     $modalAdd.classList.add(HIDDEN_CLASS);
 })
 
 
 document.forms.add_cats_form.addEventListener('submit', async (event) => {
+    $formErrorMsg.innerText = '';
     event.preventDefault();
 
     const data = Object.fromEntries(new FormData(event.target).entries());
@@ -90,25 +92,41 @@ document.forms.add_cats_form.addEventListener('submit', async (event) => {
     data.rate = Number(data.rate);
     data.favorite = data.favorite ? true : false;
 
-
     const res = await api.addNewCat(data);
-    const responce = await res.json();
 
-    // Как то вывести сразу этого кота (перезапросить всех котов)
-
-    console.log(responce)
-    event.target.reset() // сброс формы
-
-    $modalAdd.classList.add(HIDDEN_CLASS); // убираем модалку
+    if (res.ok) {
+        $wrapper.replaceChildren();
+        getCatsFunc();
+        $modalAdd.classList.add(HIDDEN_CLASS); // убираем модалку
+        return event.target.reset() // сброс формы
+    } else {
+        const responce = await res.json();
+        $formErrorMsg.innerText = responce.massage;
+        return;
+    }
 })
 
-const firstGettingCats = async () => {
+const getCatsFunc = async () => {
     const res = await api.getAllCats();
+
+    if (res.status !== 200) {
+        const $errorMassage = document.createElement('p');
+        $errorMassage.classList.add('error-msg');
+        $errorMassage.innerText = 'Произошла ошибка, попробуйте позже';
+        return $wrapper.appendChild($errorMassage);
+    }
+
     const data = await res.json();
+    
+    if (data.length === 0) {
+        const $notificationMassage = document.createElement('p');
+        $notificationMassage.innerText = 'Список котов пуст, добавьте нового кота';
+        return  z$wrapper.appendChild($notificationMassage);
+    }
 
     data.forEach(cat => {
-        $wrapper.insertAdjacentHTML('afterbegin', generateCatCard(cat))
+        $wrapper.insertAdjacentHTML('beforeend', generateCatCard(cat))
     });
 }
 
-firstGettingCats();
+getCatsFunc();

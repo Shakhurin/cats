@@ -15,14 +15,6 @@
 </head>
 
 <body>
-    <header>
-        <div class="head">
-            <p id="APIname">Cats</p>
-            <button type='button' data-add_button class="btn-add">
-                Add cat
-            </button>
-        </div>
-    </header>
     <div class="container">
         <div data-modal class="modal-wrapper hidden">
             <div class="custom-modal">
@@ -53,9 +45,18 @@
                     <div class="mb-3">
                         <textarea name='description' type="text" placeholder="description"></textarea>
                     </div>
+                    <p data-errmsg class="error-msg"></p>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
+        </div>
+        <div class="head">
+            <div id="APIname">
+                <h1>Cats</h1>
+            </div>
+            <button type='button' data-add_button class="btn-add">
+                Add cat
+            </button>
         </div>
         <div data-wrapper></div>
     </div>

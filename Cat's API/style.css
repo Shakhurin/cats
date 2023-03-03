@@ -5,21 +5,22 @@ body{
 
 .head{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #AAA0C4;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
     height:45px;
     width: 100%;
-    margin-bottom:10px;
-    color: #FAFBFA;
+    margin-top: 30px;
+    margin-bottom:50px;
 }
 
 #APIname{
-    font-size: 40px;
+    font-size: 20px;
+    color: black;
 }
 
 [data-wrapper]{
-    background-color: #382E6E;
+    padding-top: 30px;
     width: 100%;
     height: auto;
     display: flex;
@@ -30,36 +31,36 @@ body{
     display: flex;
     flex-direction: column;
     width: 18rem;
-    background-color: #A161B0;
     border-radius: 2%;
     border: solid;
+    border-color: blue;
 }
 
 .card-body{
     display: flex;
     flex-direction: column;
-    background-color: aquamarine;
+    background-color: whitesmoke;
     font-family: 'Raleway', sans-serif;
+    border-radius: 0% 0% 3% 3%;
 }
 
 .card-title{
     align-self: center; 
     font-size: 16px;
-    background-color: aqua;
     margin: 0;
     margin: 10px;
 }
 
 .card-img-top{
     align-self: center;
-    width: 200px;;
-    height: 200px;
-    border-radius: 2%;
+    width: 100%;;
+    height: 100%;
+    border-radius: 2% 2% 0% 0%;
     object-fit: fill;
 }
 
 .card-text{
-    background-color: aliceblue;
+    background-color: gainsboro;
     padding: 5px;
 }
 
@@ -68,18 +69,27 @@ body{
     background-color: rgb(43, 43, 255);
     font-size: 15px;
     margin-bottom: 10px;
+    border-radius: 7px;
 }
 
 .btn-edit{
     background-color: yellow;
+    font-size: 15px;
+    margin-bottom: 10px;
+    border-radius: 7px;
 }
 
 .btn-delete{
     background-color: red;
+    font-size: 15px;
+    margin-bottom: 10px;
+    border-radius: 7px;
 }
 
 .btn-add{
-
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 7px;
 }
 
 .modal-wrapper{
@@ -88,6 +98,8 @@ body{
     position: absolute;
     background: rgb(0, 0, 0,0.4);
     z-index: 1;
+    backdrop-filter: blur(2px);
+    
     display: flex;
     display: flex;
     justify-content: center;
@@ -110,4 +122,15 @@ body{
 
 .hidden{
     display: none;
+}
+
+.error-msg{
+    color: red;
+}
+
+.buttonsContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
 }
