@@ -19,7 +19,6 @@ body{
 }
 
 [data-wrapper]{
-    background-color: aqua;
     padding-top: 30px;
     width: 100%;
     display: grid;
