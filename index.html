@@ -18,8 +18,10 @@
     <div class="container">
         <div data-modal class="modal-wrapper hidden">
             <div class="custom-modal">
-                <form name="add_cats_form">
-                    <button data-close_button type="submit" class="btn btn-primary">Х</button>
+              <form name="add_cats_form">
+                    <div>
+                      <button data-close_button class="btn btn-primary">Х</button>
+                    </div>
                     <div class="mb-3">
                         <input name="id" type="number" placeholder="id">
                     </div>
@@ -35,9 +37,6 @@
                     <div class="mb-3">
                         <input name="rate" type="number" placeholder="rate">
                     </div>
-                    <div class="mb-3">
-                        <input name="name" type="text" placeholder="name">
-                    </div>
                     <div class="mb-3 form-check">
                         <input name="favorite" type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">Любимый ?</label>
@@ -46,7 +45,7 @@
                         <textarea name='description' type="text" placeholder="description"></textarea>
                     </div>
                     <p data-errmsg class="error-msg"></p>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn-submit">Submit</button>
                 </form>
             </div>
         </div>

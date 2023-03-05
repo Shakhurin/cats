@@ -52,7 +52,7 @@ $wrapper.addEventListener('click', async (event) => {
             try {
                 const res = await api.deleteCat(catId);
                 const responce = await res.json();
-                if (!res.ok) throw Error(response.massage)
+                if (!res.ok) throw Error(responce.massage)
                 $currentCard.remove();
             } catch (error) {
                 console.log(error);
@@ -93,6 +93,8 @@ document.forms.add_cats_form.addEventListener('submit', async (event) => {
     data.favorite = data.favorite ? true : false;
 
     const res = await api.addNewCat(data);
+
+    console.log(data);
 
     if (res.ok) {
         $wrapper.replaceChildren();

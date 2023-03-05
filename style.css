@@ -1,6 +1,5 @@
 body{
     background-color: #FAFBFA;
-    
 }
 
 .head{
@@ -20,11 +19,13 @@ body{
 }
 
 [data-wrapper]{
+    background-color: aqua;
     padding-top: 30px;
     width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 15px;
+    padding-left: 30px;
 }
 
 .card{
@@ -84,12 +85,19 @@ body{
     font-size: 15px;
     margin-bottom: 10px;
     border-radius: 7px;
+    cursor: pointer;
 }
 
 .btn-add{
     padding: 5px;
     font-size: 15px;
     border-radius: 7px;
+    background-color: rgb(12, 172, 12);
+    cursor: pointer;
+}
+
+.btn-submit{
+    cursor: pointer;
 }
 
 .modal-wrapper{
@@ -101,7 +109,6 @@ body{
     backdrop-filter: blur(2px);
     
     display: flex;
-    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -110,10 +117,19 @@ body{
 /* Стили для модалки */
 .custom-modal{
     background-color: white;
-    /* display: flex;
-    justify-content:center; */
     padding: 16px;
     border-radius: 10px;
+    display: flex;
+}
+
+.mb-3{
+    padding: 5px;
+}
+
+[data-close_button]{
+    background-color: red;
+    justify-self: center;
+    cursor: pointer;
 }
 
 .form-lable{
@@ -132,5 +148,4 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
-
 }
